@@ -2,12 +2,7 @@ import midi
 from scripts.transformations import *
 from scripts.spaces import *
 from scripts.file_handler import *
-
-def note_sound(note_pitch,pitch_length,base_duration,delay,note_velocity):
-  note_len=int(pitch_length*base_duration)
-  on = midi.NoteOnEvent(tick=note_len-delay, velocity=note_velocity, pitch=note_pitch)
-  off= midi.NoteOffEvent(tick=delay, pitch=note_pitch)
-  return on,off
+from scripts.secondary_funcs import *
 
 def text2midi(text,timing=[],scale=[0,2,4,5,7,9,11],name="example.mid",baselet="a",key=60,transformation=letter2note,space_func=skip_space,base_duration=100,delay=0,note_velocity=20,file_func=create_midi, **kwargs):
   
